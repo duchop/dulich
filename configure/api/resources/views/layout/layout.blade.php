@@ -10,7 +10,6 @@
 
     <!--meta name="keywords" content="" /-->
     <title>@yield('title')</title>
-    <link rel="icon" href="{{ asset('img/favicon.ico') }}"/>
 
     <link href="{!! asset('css/vendor/simple-line-icons.css') !!}" rel="stylesheet">
     <link href="{!! asset('css/vendor/themify-icons.css') !!}" rel="stylesheet">

@@ -33,9 +33,9 @@ return [
     'connections' => [
         'mysql' => [
             'driver' => 'mysql',
-            'host' => '192.168.33.30',
+            'host' => '192.168.33.40',
             'port' => 3306,
-            'database' => 'api',
+            'database' => 'db_du_lich',
             'username' => 'root',
             'password' => '',
             'unix_socket' => '',

@@ -33,11 +33,11 @@ return [
     'connections' => [
         'mysql' => [
             'driver' => 'mysql',
-            'host' => 'test-db7.gnavi.co.jp',
+            'host' => '192.168.33.40',
             'port' => 3306,
-            'database' => 'api',
-            'username' => 'api',
-            'password' => 'EW6qJA5',
+            'database' => 'db_du_lich',
+            'username' => 'root',
+            'password' => '',
             'unix_socket' => '',
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',

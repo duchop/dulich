@@ -73,51 +73,35 @@
                             <ul class="nav-menu align-to-right">
                                 <li><a class="active" href="#">Home</a>
                                     <ul class="nav-dropdown">
-                                        <li><a href="index.html">Home Style 1</a></li>
-                                        <li><a href="home-style-2.html">Home Style 2</a></li>
-                                        <li><a href="home-style-3.html">Home Style 3</a></li>
+                                        <li><a href="index.html">Daily tour</a></li>
+                                        <li><a href="home-style-2.html">Halong on cruise</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Tours</a>
+                                <li><a href="#">Daily tour</a>
                                     <ul class="nav-dropdown">
-                                        <li><a href="#">Tour List</a>
-                                            <ul class="nav-dropdown">
-                                                <li><a href="tour-list-1.html">Tour List 1</a></li>
-                                                <li><a href="tour-list-2.html">Tour List 2</a></li>
-                                                <li><a href="tour-list-3.html">Tour List 3</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="#">Tour Single</a>
-                                            <ul class="nav-dropdown">
-                                                <li><a href="tour-single-1.html">Tour Single 1</a></li>
-                                                <li><a href="tour-single-2.html">Tour Single 2</a></li>
-                                                <li><a href="tour-single-3.html">Tour Single 3</a></li>
-                                            </ul>
-                                        </li>
+                                        @foreach($ary_category_daily_tour as $category_daily_tour)
+                                        <li><a href="tour-list-1.html">{{ $category_daily_tour['category_name'] }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                <li><a href="#">Halong on cruise</a>
+                                    <ul class="nav-dropdown">
+                                        @foreach($ary_ha_long_tour as $ha_long_tour)
+                                        <li><a href="destination-single-2.html">{{ $ha_long_tour['tour_name'] }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Destinations</a>
+                                <li><a href="#">Transportation</a>
                                     <ul class="nav-dropdown">
-                                        <li><a href="destination-list-1.html">Destination List 1</a></li>
-                                        <li><a href="destination-list-2.html">Destination List 2</a></li>
-                                        <li><a href="destination-single-1.html">Destination Single 1</a></li>
-                                        <li><a href="destination-single-2.html">Destination Single 2</a></li>
+                                        <li><a href="#">Airport Transportation</a></li>
+                                        <li><a href="#">Bus </a></li>
+                                        <li><a href="#">Train</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="#">Pages</a>
+                                <li><a href="#">Hotel</a>
                                     <ul class="nav-dropdown">
-                                        <li><a href="special-page-about-us.html">About Us</a></li>
-                                        <li><a href="slider-page.html">Slider Page</a></li>
-                                        <li><a href="simple-page.html">Simple Page</a></li>
-                                        <li><a href="coming-soon.html">Coming Soon</a></li>
-                                        <li><a href="special-page-404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Blog</a>
-                                    <ul class="nav-dropdown">
-                                        <li><a href="blog-page-1.html">Blog List 1</a></li>
-                                        <li><a href="blog-page-2.html">Blog List 2</a></li>
-                                        <li><a href="blog-single-page-1.html">Blog Single</a></li>
+                                        @foreach($ary_category_hotel as $category_hotel)
+                                        <li><a href="blog-page-1.html">{{ $category_hotel['hotel_category_name'] }}</a></li>
+                                        @endforeach
                                     </ul>
                                 </li>
                                 <li><a href="#">Elements</a>

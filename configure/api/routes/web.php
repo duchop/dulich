@@ -12,8 +12,8 @@
 use App\Constants\ErrorCodeConst;
 use App\Constants\CommonConst;
 
-Route::get('login', 'LoginController@index');
-Route::post(CommonConst::APP_LOGIN, 'LoginController@doLogin');
+Route::get('home', 'HomeController@index');
+Route::post(CommonConst::APP_LOGIN, 'HomeController@doLogin');
 Route::get(CommonConst::APP_APPROVAL, 'RegisterUserController@doApproval');
 Route::get(CommonConst::APP_SEND_PASS, 'ForgotPasswordController@index');
 Route::post(CommonConst::APP_SEND_PASS, 'ForgotPasswordController@doSendPass');

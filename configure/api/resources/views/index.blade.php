@@ -149,97 +149,27 @@
             </div>
 
             <div class="row">
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-3.jpeg" alt="">
-                                <p class="price">1450 $</p>
+                @foreach($ary_daily_tour as $daily_tour)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="tour-item">
+                            <a href="#">
+                                <div class="img-wrap">
+                                    <img src="{{ $daily_tour->imageRelation['0']->image['url'] }}" alt="">
+                                    @if(isset($daily_tour['price']) and $daily_tour['price'] != 0)
+                                        <p class="price">{{ $daily_tour['price'] }}$</p>
+                                    @else
+                                        <p class="price">Contact</p>
+                                    @endif
+                                </div>
+                            </a>
+                            <div class="caption">
+                                <a href="#"><p class="title">{{ $daily_tour['tour_name'] }}</p></a>
+                                <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($daily_tour['update_datetime'])) }}</p>
+                                <p class="time"><span class="ti-time"></span>10 days</p>
                             </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>10 days</p>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-6.jpeg" alt="">
-                                <p class="price"><span>1500 $</span>1250 $</p>
-                            </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>15 days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-1.jpeg" alt="">
-                                <p class="price">1450 $</p>
-                            </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>7 days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-3.jpeg" alt="">
-                                <p class="price">1450 $</p>
-                            </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>10 days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-6.jpeg" alt="">
-                                <p class="price"><span>1500 $</span>1250 $</p>
-                            </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>15 days</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="tour-item">
-                        <a href="#">
-                            <div class="img-wrap">
-                                <img src="img/distination-1.jpeg" alt="">
-                                <p class="price">1450 $</p>
-                            </div>
-                        </a>
-                        <div class="caption">
-                            <a href="#"><p class="title">Maldives Adventure Tour</p></a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="time"><span class="ti-time"></span>7 days</p>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
 
