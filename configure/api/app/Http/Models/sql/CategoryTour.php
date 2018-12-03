@@ -18,7 +18,7 @@ class CategoryTour
      *
      * @return array
      */
-    public function getListDailyTour() {
+    public function getListCategoryDailyTour() {
         $ary_category_tour = CategoryTourModel::where('category_tour_id', '!=', 5)->get(['category_name'])->toArray();
         return $ary_category_tour;
     }

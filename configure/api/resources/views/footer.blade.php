@@ -1,3 +1,9 @@
+<!-- SCROLL UP -->
+<a class="scrollup">
+    <i class="icon-arrow-up icons"></i>
+</a>
+<!-- / SCROLL UP -->
+
 <footer class="dark-footer"  style="background-image: url(img/image-20.jpg);">
     <div class="main-footer">
         <div class="container">
@@ -81,7 +87,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p>@ 2018 VoyageTime</p>
+                    <p>Copyright © 2018. Web deverloper HopDD</p>
                 </div>
                 <div class="col-md-6 text-r mobile-left">
                     <p><img width="200" src="img/visa-mastercard-paypal.png" alt="Visa Mastercard Paypal"></p>

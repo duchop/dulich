@@ -13,13 +13,7 @@ use App\Constants\ErrorCodeConst;
 use App\Constants\CommonConst;
 
 Route::get('home', 'HomeController@index');
-Route::post(CommonConst::APP_LOGIN, 'HomeController@doLogin');
-Route::get(CommonConst::APP_APPROVAL, 'RegisterUserController@doApproval');
-Route::get(CommonConst::APP_SEND_PASS, 'ForgotPasswordController@index');
-Route::post(CommonConst::APP_SEND_PASS, 'ForgotPasswordController@doSendPass');
-
-Route::get(CommonConst::APP_REGIST, 'RegisterUserController@index');
-Route::post(CommonConst::APP_REGIST, 'RegisterUserController@doRegist')->middleware('csrf');
+Route::get('tour_detail', 'TourDetailController@index');
 
 Route::match([
     'get',
@@ -35,10 +29,6 @@ Route::group([
         'get',
         'post'
     ], CommonConst::APP_MYPAGE, 'MypageController@createMyPage');
-    Route::post(CommonConst::APP_CHANGE, 'ChangeUserController@doChange')->middleware('csrf');
-    Route::post(CommonConst::APP_UNSUBSCRIBE, 'UnsubscribeController@doUnsub')->middleware('csrf');
-    Route::post(CommonConst::APP . CommonConst::APP_DELETE, 'MaintainAppController@doAppDelete')->middleware('csrf');
-    Route::post(CommonConst::APP . CommonConst::APP_REGIST, 'RegisterAppController@doAppRegist')->middleware('csrf');
     Route::post(CommonConst::APP . CommonConst::APP_CHANGE, 'ChangeAppController@doAppChange')->middleware('csrf');
 });
 

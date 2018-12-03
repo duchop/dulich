@@ -8,7 +8,6 @@
 
 namespace App\Http\Models\sql;
 
-
 use App\Http\Models\TourModel;
 
 class Tour
@@ -19,23 +18,57 @@ class Tour
      * @param $category_tour_id
      * @return mixed
      */
-    public function getListHaLongTour() {
-        $ary_colums = [
-            'category_tour_id',
-            'tour_name',
-        ];
-        $ary_tours = TourModel::all($ary_colums);
-        return $ary_tours;
-    }
-
-    public function getListDailyTour($limit) {
+    public function getListHaLongTour($limit, $offset = 0) {
         $ary_colums = [
             'tour_id',
             'tour_name',
+            'tour_time',
             'price',
             'update_datetime'
         ];
-        $ary_daily_tours = TourModel::where('category_tour_id','!=', 5)->limit($limit)->get($ary_colums);
+        $ary_tours = TourModel::where('category_tour_id', 5)->limit($limit)->offset($offset)->get($ary_colums);
+        return $ary_tours;
+    }
+
+    /**
+     * Lấy danh sách dailytour
+     *
+     * @param $limit
+     * @param int $offset
+     * @return mixed
+     */
+    public function getListDailyTour($limit, $offset = 0) {
+        $ary_colums = [
+            'tour_id',
+            'tour_name',
+            'tour_time',
+            'price',
+            'update_datetime'
+        ];
+        $ary_daily_tours = TourModel::where('category_tour_id','!=', 5)->limit($limit)->offset($offset)->get($ary_colums);
         return $ary_daily_tours;
+    }
+
+    /**
+     * Lấy thông tin chi tiết tour theo id
+     *
+     * @param $tour_id
+     * @return mixed
+     */
+    public function getTourDetailById($tour_id) {
+        $tour = TourModel::find($tour_id);
+        return $tour;
+    }
+
+    /**
+     * Lấy danh sách tour theo category
+     *
+     * @param $category_tour_id
+     * @return mixed
+     */
+    public function getListTourByCategoryId($ary_colums, $category_tour_id, $tour_id, $limit = 0, $offset = 0) {
+        $list_tours = TourModel::where('category_tour_id', $category_tour_id)->where('tour_id', '!=', $tour_id)
+            ->limit($limit)->offset($offset)->get($ary_colums);
+        return $list_tours;
     }
 }

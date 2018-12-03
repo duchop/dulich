@@ -25,4 +25,9 @@ class TourModel extends Model
     {
         return $this->hasMany(ImageRelationModel::class, 'tour_id');
     }
+
+    public function getCategoryTour()
+    {
+        return $this->belongsTo(CategoryTourModel::class, 'category_tour_id');
+    }
 }

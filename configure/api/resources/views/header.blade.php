@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-5 col-4">
                     <div class="main-header-logo">
-                        <a href="index.html"><img width="130" src="img/logo-white.png" alt="Site logo"></a>
+                        <a href="home"><img width="130" src="img/logo-white.png" alt="Site logo"></a>
                     </div>
                 </div>
                 <div class="col-md-7 col-8">
@@ -86,7 +86,7 @@
                                 <li><a href="#">Halong on cruise</a>
                                     <ul class="nav-dropdown">
                                         @foreach($ary_ha_long_tour as $ha_long_tour)
-                                        <li><a href="destination-single-2.html">{{ $ha_long_tour['tour_name'] }}</a></li>
+                                        <li><a href="tour_detail?tour_id={{ $ha_long_tour['tour_id'] }}">{{ $ha_long_tour['tour_name'] }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>

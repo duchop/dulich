@@ -10,11 +10,12 @@
 @section('body_class'){!! 'page_index' !!}@endSection
 
 @section('content')
+
     <div class="search-relative">
 
         <!-- slider -->
         <div class="owl-carousel" id="fullscreen-slider">
-            <div class="item height100vh" style="background-image: url(img/slider-1.jpg);">
+            <div class="item height100vh" style="background-image: url({{ 'img/slider-1.jpg' }});">
                 <div class="page-head-wrap">
                     <div class="page-head-inner">
                         <div class="page-head-caption container text-left">
@@ -32,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item height100vh" style="background-image: url(img/slider-2.jpg);">
+            <div class="item height100vh" style="background-image: url({{ 'img/slider-2.jpg' }});">
                 <div class="page-head-wrap">
                     <div class="page-head-inner">
                         <div class="page-head-caption container text-right">
@@ -50,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="item height100vh" style="background-image: url(img/slider-3.jpg);">
+            <div class="item height100vh" style="background-image: url({{ 'img/slider-3.jpg' }});">
                 <div class="page-head-wrap">
                     <div class="page-head-inner">
                         <div class="page-head-caption container text-left">
@@ -152,7 +153,7 @@
                 @foreach($ary_daily_tour as $daily_tour)
                     <div class="col-md-6 col-lg-4">
                         <div class="tour-item">
-                            <a href="#">
+                            <a href="tour_detail?tour_id={{ $daily_tour['tour_id'] }}">
                                 <div class="img-wrap">
                                     <img src="{{ $daily_tour->imageRelation['0']->image['url'] }}" alt="">
                                     @if(isset($daily_tour['price']) and $daily_tour['price'] != 0)
@@ -163,9 +164,9 @@
                                 </div>
                             </a>
                             <div class="caption">
-                                <a href="#"><p class="title">{{ $daily_tour['tour_name'] }}</p></a>
+                                <a href="tour_detail?tour_id={{ $daily_tour['tour_id'] }}"><p class="title">{{ $daily_tour['tour_name'] }}</p></a>
                                 <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($daily_tour['update_datetime'])) }}</p>
-                                <p class="time"><span class="ti-time"></span>10 days</p>
+                                <p class="time"><span class="ti-time"></span>{{ $daily_tour['tour_time'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -201,84 +202,20 @@
                 </div>
             </div>
             <div class="row">
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-2.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">Australia</p>
-                                <p class="description">Plan your adventures in Australia with our tours</p>
+                @foreach($ary_ha_long_tour as $ha_long_tour)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="category-item effect-1">
+                            <img src="{{ $ha_long_tour->imageRelation['0']->image['url'] }}" alt="img12">
+                            <div class="caption">
+                                <div>
+                                    <p class="title">{{ $ha_long_tour['tour_name'] }}</p>
+                                    <p class="description">Plan your adventures in Ha Long with our tours</p>
+                                </div>
+                                <a href="tour_detail?tour_id={{ $ha_long_tour['tour_id'] }}">View more</a>
                             </div>
-                            <a href="#">View more</a>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-4.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">Czech Republic</p>
-                                <p class="description">Plan your adventures in Czech Republic with our tours</p>
-                            </div>
-                            <a href="#">View more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-3.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">Norway</p>
-                                <p class="description">Plan your adventures in Norway with our tours</p>
-                            </div>
-                            <a href="#">View more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-1.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">UAE</p>
-                                <p class="description">Sunrise shot of Downtown Dubai and Burj Khalifa</p>
-                            </div>
-                            <a href="#">View more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-5.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">Poland</p>
-                                <p class="description">Plan your adventures in Poland with our tours</p>
-                            </div>
-                            <a href="#">View more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="category-item effect-1">
-                        <img src="img/distination-6.jpeg" alt="img12">
-                        <div class="caption">
-                            <div>
-                                <p class="title">France</p>
-                                <p class="description">Plan your adventures in France with our tours</p>
-                            </div>
-                            <a href="#">View more</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -356,96 +293,35 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center block width100 mb-50 block-title">
-                        <h2>Our Blog</h2>
-                        <div class="separator"><span>Checkout latest news from our blog</span></div>
+                        <h2>Hotel</h2>
+                        <div class="separator"><span>Check out our latest list of hotels</span></div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-item effect-1">
-                        <a class="block" href="#">
-                            <img src="img/distination-2.jpeg" alt="img12">
-                        </a>
-                        <div class="caption clearfix">
-                            <a href="#">
-                                <p class="title">The Best Travel Blog Ever</p>
+                @foreach($ary_hotel as $hotel)
+                    <div class="col-md-6 col-lg-4">
+                        <div class="blog-item effect-1">
+                            <a class="block" href="#">
+                                <img src="{{ $hotel->imageRelation['0']->image['url'] }}" alt="img12">
                             </a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="author"><span class="ti-user"></span>By TravelUser</p>
-                            <ul class="tags">
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Trip</a></li>
-                                <li><a href="#">Happy</a></li>
-                            </ul>
+                            <div class="caption clearfix">
+                                <a href="#">
+                                    <p class="title">{{ $hotel['hotel_name'] }}</p>
+                                </a>
+                                <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($hotel['update_datetime'])) }}</p>
+                                <p class="author"><span class="ti-user"></span>By TravelUser</p>
+                                <ul class="tags">
+                                    <li><a href="#">View Detail</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-item effect-1">
-                        <a class="block" href="#">
-                            <img src="img/distination-3.jpeg" alt="img12">
-                        </a>
-                        <div class="caption clearfix">
-                            <a href="#">
-                                <p class="title">The Best Travel Blog Ever</p>
-                            </a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="author"><span class="ti-user"></span>By TravelUser</p>
-                            <ul class="tags">
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Trip</a></li>
-                                <li><a href="#">Happy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="blog-item effect-1">
-                        <a class="block" href="#">
-                            <img src="img/distination-5.jpeg" alt="img12">
-                        </a>
-                        <div class="caption clearfix">
-                            <a href="#">
-                                <p class="title">The Best Travel Blog Ever</p>
-                            </a>
-                            <p class="date"><span class="ti-calendar"></span>August 20, 2018</p>
-                            <p class="author"><span class="ti-user"></span>By TravelUser</p>
-                            <ul class="tags">
-                                <li><a href="#">Photos</a></li>
-                                <li><a href="#">Trip</a></li>
-                                <li><a href="#">Happy</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
         </div>
     </div>
 
     <!-- BLOCK / news -->
-
-
-
-    <!-- SCROLL UP -->
-    <a class="scrollup">
-        <i class="icon-arrow-up icons"></i>
-    </a>
-    <!-- / SCROLL UP -->
-@endsection
-
-@section('script')
-<!--
-<div style="display:none;height:0;position:relative;visibility:hidden;width:0;">
-    <script src="//x.gnst.jp/s.js"></script>
-    <script>
-        ('localhost' !== location.hostname) && document.write(unescape("%3Cscript src='//site.gnavi.co.jp/analysis/sc_" + getScSubdom() + ".js'%3E%3C/script%3E"));
-    </script>
-</div>
--->
 @endsection

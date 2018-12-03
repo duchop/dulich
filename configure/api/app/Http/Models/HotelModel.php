@@ -21,5 +21,8 @@ class HotelModel extends Model
 
     protected $primaryKey = 'hotel_id';
 
-    public $incrementing = false;
+    public function imageRelation()
+    {
+        return $this->hasMany(ImageRelationModel::class, 'hotel_id');
+    }
 }

@@ -410,7 +410,7 @@ blockquote.blockquote-2 p {
   margin-bottom: 0; }
 
 blockquote.blockquote-2:before {
-  content: " “ ";
+  content: " ï¿½ ";
   color: #ef3822;
   font-size: 60px;
   display: inline-block;
@@ -830,7 +830,7 @@ p.testimonial-person {
   text-align: center; }
 
 .testimonial-image span:before {
-  content: " “ ";
+  content: " ï¿½ ";
   color: #212121;
   font-size: 80px;
   font-family: "Merriweather", serif;
@@ -861,7 +861,7 @@ p.testimonial-person {
   margin-top: 40px; }
 
 .testimonial-info-quote:before {
-  content: " “ ";
+  content: " ï¿½ ";
   color: rgba(0, 0, 0, 0.1);
   font-size: 80px;
   font-family: "Merriweather", serif;

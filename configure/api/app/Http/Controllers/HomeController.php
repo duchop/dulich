@@ -1,12 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Http\Models\sql\UserDbAccess;
 use Illuminate\Http\Request;
-use App\Constants\ErrorCodeConst;
 use App\Http\Services\HomeService;
-use App\Exceptions\ApiException;
-use App\Constants\CommonConst;
 
 class HomeController extends Controller
 {
@@ -27,7 +23,7 @@ class HomeController extends Controller
     }
 
     /**
-     * ログイン画面にアクセス処理
+     * Action được gọi đến khi vào trang chủ
      *
      * @param Request $request
      */
