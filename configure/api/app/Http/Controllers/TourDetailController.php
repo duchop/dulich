@@ -31,9 +31,8 @@ class TourDetailController extends Controller
     {
         $tour_id = $request->get('tour_id');
 
+        // lấy thông tin để hiển thị lên view
         $data = $this->service->getData($tour_id);
-
-
 
         return view('tour_detail')->with($data);
     }

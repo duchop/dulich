@@ -500,11 +500,11 @@ ul.list-3 li:before {
   font-weight: normal;
   vertical-align: top;
   display: inline-block;
-  font-size: 22px;
+  font-size: 15px;
   line-height: 0.9;
   position: relative;
-  right: 1px;
-  top: 1px;
+  right: 0px;
+  top: 4px;
   width: 18px; }
 
 hr {

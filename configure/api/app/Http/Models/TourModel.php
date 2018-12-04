@@ -30,4 +30,14 @@ class TourModel extends Model
     {
         return $this->belongsTo(CategoryTourModel::class, 'category_tour_id');
     }
+
+    public function getItinerary()
+    {
+        return $this->hasMany(ItineraryModel::class, 'tour_id');
+    }
+
+    public function getInclude()
+    {
+        return $this->hasMany(IncludeModel::class, 'tour_id');
+    }
 }

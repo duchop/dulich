@@ -10,14 +10,14 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ItineratyModel extends Model
+class ItineraryModel extends Model
 {
 
     const CREATED_AT = 'regist_datetime';
 
     const UPDATED_AT = 'update_datetime';
 
-    protected $table = 'tbl_itineraty';
+    protected $table = 'tbl_itinerary';
 
     protected $primaryKey = 'itinerary_id';
 }

@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="page-head white-content">
-        <div class="height50vh parallax-container" style="background-image: url({{ 'img/slider-1.jpg' }});">
+        <div class="height50vh parallax-container" style="background-image: url({{ 'img/dongvan.jpg' }});">
             <div class="page-head-wrap">
                 <div class="display-r">
                     <div class="display-a">
@@ -57,37 +57,66 @@
 
                     </div>
                 </div>
-                @if(isset($tour['introductions']))
-                <h4>Introduction</h4>
-                <p>{{ $tour['introductions'] }}</p>
+                @if(! empty($tour['introductions']))
+                    <h4>Introduction</h4>
+                    <p>{{ $tour['introductions'] }}</p>
+                @endif
+                @if(isset($tour->getItinerary) and count($tour->getItinerary) > 0)
+                    <hr>
+                    <h4>Itinerary</h4>
+                    <ul class="list-2">
+                        @foreach($tour->getItinerary as $itinerary)
+                            @if(isset($itinerary['time_start']) and isset($itinerary['time_end']))
+                                <li>
+                                    <strong>{{ $itinerary['time_start'] . ' - ' . $itinerary['time_end'] }}</strong>
+                                    {!! $itinerary['itinerary_content'] !!}
+                                </li>
+                            @elseif(isset($itinerary['time_start']))
+                                <li>
+                                    <strong>{{ $itinerary['time_start'] }}</strong>
+                                    {!! $itinerary['itinerary_content'] !!}
+                                </li>
+                            @else
+                                <li>
+                                    {!! $itinerary['itinerary_content'] !!}
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
                 @endif
 
-                <ul class="list-2">
-                    <li>Item # 1 </li>
-                    <li>Item # 2 </li>
-                    <li>Item # 3 </li>
-                    <li>Item # 4 </li>
-                    <li>Item # 5 </li>
-                </ul>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi minus voluptas maiores error assumenda quis, amet aperiam culpa, perspiciatis fuga deserunt similique voluptate illo quam nobis atque ad quia expedita?</p>
-                <hr>
-                <iframe src="https://player.vimeo.com/video/66516165" width="640" height="360"></iframe>
-                <div class="text-center">
-                    <p><a href="https://vimeo.com/66516165">London time-lapse (2013)</a> from <a href="https://vimeo.com/bh2">BH-2</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
-                </div>
-
-                <p>Metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. </p>
-
-                <div class="blog-post-tags mt-20">
-                    <ul class="tags">
-                        <li><a href="#">Photos</a></li>
-                        <li><a href="#">Trip</a></li>
-                        <li><a href="#">Happy</a></li>
-                    </ul>
-                </div>
-
-                <div class="blog-comments mt-50">
+                @if(isset($tour->getInclude) and count($tour->getInclude))
                     <hr>
+                    <h4>Included</h4>
+                    <ul class="list-3">
+                        @foreach($tour->getInclude as $include)
+                            @if(isset($include['include_name']) and $include['include_type'] == 0)
+                                <li>{!! $include['include_name'] !!} </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
+                @if(isset($tour->getInclude) and count($tour->getInclude))
+                    <hr>
+                    <h4>Excluded</h4>
+                    <ul class="list-3">
+                        @foreach($tour->getInclude as $include)
+                            @if(isset($include['include_name']) and $include['include_type'] == 1)
+                                <li>{!! $include['include_name'] !!} </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                @endif
+                @if(isset($tour['price']) and $tour['price'] > 0)
+                    <hr>
+                    <h4>Price</h4>
+                    <strong style="color: #ff6224">{{ $tour['price'] }} $</strong>
+                @else
+                    <hr>
+                    <h4>Price</h4>
+                    <strong style="color: #ff6224">Contact</strong>
+                @endif
+                <div class="blog-comments mt-50">
                     <h3>3 comments on "Blog Single Post 1"</h3>
 
                     <div class="blog-comment-item">
@@ -183,15 +212,14 @@
                         </div>
                     @endif
                     <div class="sidebar-item mb-40">
-                        <p class="sidebar-title">Categories</p>
-                        <ul class="categories">
-                            <li><a href="#">Bus tours</a><span>(8)</span></li>
-                            <li><a href="#">Ecotourism‎</a><span>(14)</span></li>
-                            <li><a href="#">Cultural tourism‎</a><span>(3)</span></li>
-                            <li><a href="#">Fashion tourism</a><span>(2)</span></li>
-                            <li><a href="#">Extreme tourism</a><span>(19)</span></li>
-                            <li><a href="#">Honeymoon</a><span>(5)</span></li>
-                        </ul>
+                        @if(isset($list_category_tours) and count($list_category_tours) > 0)
+                            <p class="sidebar-title">Categories</p>
+                            <ul class="categories">
+                                @foreach($list_category_tours as $category_tour)
+                                    <li><a href="#">{{ $category_tour['category_name'] }}</a><span>({{ $category_tour['count_tour'] }})</span></li>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
 
                     <div class="sidebar-item mb-40">
