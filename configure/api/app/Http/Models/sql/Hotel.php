@@ -20,7 +20,7 @@ class Hotel
      * @param int $offset
      * @return mixed
      */
-    public function getListHotel($limit, $offset = 0){
+    public function getListHotel($limit = 0, $offset = 0){
         $ary_colums = [
             'hotel_id',
             'hotel_name',
@@ -29,5 +29,28 @@ class Hotel
         $ary_hotels = HotelModel::limit($limit)->offset($offset)->get($ary_colums);
 
         return $ary_hotels;
+    }
+
+    /**
+     * Lấy thông tin chi tiết tour theo id
+     *
+     * @param $hotel_id
+     * @return mixed
+     */
+    public function getHotelDetailById($hotel_id) {
+        $hotel = HotelModel::find($hotel_id);
+        return $hotel;
+    }
+
+    /**
+     * Lấy danh sách hotel theo category
+     *
+     * @param $category_tour_id
+     * @param int $limit
+     * @return mixed
+     */
+    public function getListHotelsByCategoryId($category_hotel_id, $limit = 0) {
+        $list_hotels = HotelModel::where('hotel_category_id', $category_hotel_id)->paginate($limit);
+        return $list_hotels;
     }
 }

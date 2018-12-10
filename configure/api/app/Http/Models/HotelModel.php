@@ -25,4 +25,14 @@ class HotelModel extends Model
     {
         return $this->hasMany(ImageRelationModel::class, 'hotel_id');
     }
+
+    public function getCategoryHotel()
+    {
+        return $this->belongsTo(HotelCategoryModel::class, 'hotel_category_id');
+    }
+
+    public function getListRoom()
+    {
+        return $this->hasMany(RoomModel::class, 'hotel_id');
+    }
 }

@@ -10,8 +10,8 @@
     $page => $url) @if ($page == $paginator->currentPage())
     <li class="active"><span>{{ $page }}</span></li> @else
     <li><a href="{{ $url }}">{{ $page }}</a></li> @endif @endforeach
-    @endif @endforeach {{-- Next Page Link --}} @if
-    ($paginator->hasMorePages())
+    @endif @endforeach {{-- Next Page Link --}}
+    @if($paginator->hasMorePages())
     <li><a href="{{ $paginator->nextPageUrl() }}" rel="next">&raquo;</a></li>
     @else
     <li class="disabled"><span>&raquo;</span></li> @endif

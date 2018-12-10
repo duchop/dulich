@@ -216,7 +216,10 @@
                             <p class="sidebar-title">Categories</p>
                             <ul class="categories">
                                 @foreach($list_category_tours as $category_tour)
-                                    <li><a href="#">{{ $category_tour['category_name'] }}</a><span>({{ $category_tour['count_tour'] }})</span></li>
+                                    <li>
+                                        <a href="tour_list?category_tour_id={{$category_tour['category_tour_id']}}">{{ $category_tour['category_name'] }}</a>
+                                        <span>({{ $category_tour['count_tour'] }})</span>
+                                    </li>
                                 @endforeach
                             </ul>
                         @endif

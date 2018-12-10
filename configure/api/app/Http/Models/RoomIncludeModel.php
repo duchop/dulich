@@ -10,14 +10,15 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class RoomRelationModel extends Model
+class RoomIncludeModel extends Model
 {
 
     const CREATED_AT = 'regist_datetime';
 
     const UPDATED_AT = 'update_datetime';
 
-    protected $table = 'tbl_room_relation';
+    protected $table = 'tbl_room_include';
 
-    protected $primaryKey = 'room_relation_id';
+    protected $primaryKey = 'room_include_id';
+
 }

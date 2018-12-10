@@ -80,10 +80,10 @@
                                 <li><a href="#">Daily tour</a>
                                     <ul class="nav-dropdown">
                                         @foreach($ary_category_daily_tour as $category_daily_tour)
-                                        <li><a href="tour-list-1.html">{{ $category_daily_tour['category_name'] }}</a></li>
+                                        <li><a href="tour_list?category_tour_id={{$category_daily_tour['category_tour_id']}}">{{ $category_daily_tour['category_name'] }}</a></li>
                                         @endforeach
                                     </ul>
-                                <li><a href="#">Halong on cruise</a>
+                                <li><a href="tour_list?category_tour_id=5">Halong on cruise</a>
                                     <ul class="nav-dropdown">
                                         @foreach($ary_ha_long_tour as $ha_long_tour)
                                         <li><a href="tour_detail?tour_id={{ $ha_long_tour['tour_id'] }}">{{ $ha_long_tour['tour_name'] }}</a></li>
@@ -93,14 +93,14 @@
                                 <li><a href="#">Transportation</a>
                                     <ul class="nav-dropdown">
                                         <li><a href="#">Airport Transportation</a></li>
-                                        <li><a href="#">Bus </a></li>
-                                        <li><a href="#">Train</a></li>
+                                        <li><a href="#">Bus Hanoi Sapa</a></li>
+                                        <li><a href="#">Train HaNoi – Lao Cai</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Hotel</a>
                                     <ul class="nav-dropdown">
                                         @foreach($ary_category_hotel as $category_hotel)
-                                        <li><a href="blog-page-1.html">{{ $category_hotel['hotel_category_name'] }}</a></li>
+                                        <li><a href="hotel_list?category_hotel_id={{ $category_hotel['hotel_category_id'] }}">{{ $category_hotel['hotel_category_name'] }}</a></li>
                                         @endforeach
                                     </ul>
                                 </li>

@@ -20,4 +20,9 @@ class RoomModel extends Model
     protected $table = 'tbl_room';
 
     protected $primaryKey = 'room_id';
+
+    public function getRoomIncludes()
+    {
+        return $this->hasMany(RoomIncludeModel::class, 'room_id');
+    }
 }

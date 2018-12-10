@@ -1,10 +1,10 @@
 <!-- SCROLL UP -->
 <a class="scrollup">
-    <i class="icon-arrow-up icons"></i>
+    <i class="fa fa-arrow-up" aria-hidden="true"></i>
 </a>
 <!-- / SCROLL UP -->
 
-<footer class="dark-footer"  style="background-image: url(img/image-20.jpg);">
+<footer class="dark-footer"  style="background-image: url({{ 'img/image-20.jpg' }});">
     <div class="main-footer">
         <div class="container">
             <div class="row">

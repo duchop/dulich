@@ -66,9 +66,21 @@ class Tour
      * @param $category_tour_id
      * @return mixed
      */
-    public function getListTourByCategoryId($ary_colums, $category_tour_id, $tour_id, $limit = 0, $offset = 0) {
+    public function getListTourByCategoryId($ary_colums, $category_tour_id, $tour_id = 0, $limit = 0, $offset = 0) {
         $list_tours = TourModel::where('category_tour_id', $category_tour_id)->where('tour_id', '!=', $tour_id)
             ->limit($limit)->offset($offset)->get($ary_colums);
+        return $list_tours;
+    }
+
+    /**
+     * Lấy danh sách tour theo category
+     *
+     * @param $category_tour_id
+     * @param int $limit
+     * @return mixed
+     */
+    public function getListToursByCategoryId($category_tour_id, $limit = 0) {
+        $list_tours = TourModel::where('category_tour_id', $category_tour_id)->paginate($limit);
         return $list_tours;
     }
 }

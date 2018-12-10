@@ -179,7 +179,7 @@
 
     <!-- BLOCK / popular -->
 
-    <div class="ctoa text-center parallax-container color-white" style="background-image: url('img/image-2.jpg')">
+    <div class="ctoa text-center parallax-container color-white" style="background-image: url({{ 'img/image-2.jpg' }})">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <h2 class="mb-30">Get 15% Off on your first travel</h2>
@@ -196,8 +196,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center block width100 mb-50 block-title">
-                        <h2>Popular Destinations</h2>
-                        <div class="separator"><span>Сhoose the the most popular destinations</span></div>
+                        <h2>Ha Long On Cruise</h2>
+                        <div class="separator"><span>Сhoose the the most popular destinations in Ha Long</span></div>
                     </div>
                 </div>
             </div>
@@ -229,7 +229,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="text-center block width100 mb-10 block-title">
-                        <h2>How we work?</h2>
+                        <h2>TRANSPORTATION</h2>
                     </div>
                 </div>
             </div>
@@ -239,11 +239,12 @@
                 <div class="col-md-4">
                     <div class="infography infography-1">
                         <div class="infography-icon">
-                            <i class="icon-call-in icons"></i>
+                            <i class="fas fa-plane"></i>
                         </div>
                         <div class="infography-text">
-                            <h4>Call Us</h4>
-                            <p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure?</p>
+                            <h4>Airport Transportation</h4>
+                            <p>Northern Vietnam Travel associates with partners that are famous in tourism transport company. We always try our best to provide the customers with the most modern transportations. We listen to the customers, perfect ourselves and try hard to provide the best and safest services.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -253,10 +254,10 @@
                 <div class="col-md-4">
                     <div class="infography infography-1">
                         <div class="infography-icon">
-                            <i class="icon-location-pin icons"></i>
+                            <i class="fas fa-bus"></i>
                         </div>
                         <div class="infography-text">
-                            <h4>Come to Us</h4>
+                            <h4>Bus Hanoi Sapa</h4>
                             <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
                         </div>
                     </div>
@@ -267,10 +268,10 @@
                 <div class="col-md-4">
                     <div class="infography infography-1">
                         <div class="infography-icon">
-                            <i class="icon-plane icons"></i>
+                            <i class="fas fa-train"></i>
                         </div>
                         <div class="infography-text">
-                            <h4>Fly to adventure</h4>
+                            <h4>Train HaNoi – Lao Cai</h4>
                             <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
                         </div>
                     </div>
@@ -303,11 +304,11 @@
                 @foreach($ary_hotel as $hotel)
                     <div class="col-md-6 col-lg-4">
                         <div class="blog-item effect-1">
-                            <a class="block" href="#">
+                            <a class="block" href="hotel_detail?hotel_id={{ $hotel['hotel_id'] }}">
                                 <img src="{{ $hotel->imageRelation['0']->image['url'] }}" alt="img12">
                             </a>
                             <div class="caption clearfix">
-                                <a href="#">
+                                <a href="hotel_detail?hotel_id={{ $hotel['hotel_id'] }}">
                                     <p class="title">{{ $hotel['hotel_name'] }}</p>
                                 </a>
                                 <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($hotel['update_datetime'])) }}</p>

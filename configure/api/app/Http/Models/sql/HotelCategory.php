@@ -20,7 +20,13 @@ class HotelCategory
      * @return HotelCategoryModel[]|\Illuminate\Database\Eloquent\Collection
      */
     public function getListCategoryHotel() {
-        $ary_category_hotel = HotelCategoryModel::all(['hotel_category_name']);
+        $ary_colums = [
+            'hotel_category_id',
+            'hotel_category_name'
+        ];
+        $ary_category_hotel = HotelCategoryModel::all($ary_colums);
         return $ary_category_hotel;
     }
+
+
 }
