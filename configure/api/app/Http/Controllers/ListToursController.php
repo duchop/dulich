@@ -34,10 +34,8 @@ class ListToursController extends Controller
      *
      * @param Request $request
      */
-    public function index(Request $request)
+    public function index()
     {
-
-
         // lấy thông tin để hiển thị lên view
         $data = $this->service->getData();
 

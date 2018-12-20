@@ -8,7 +8,6 @@
 
 namespace App\Http\Models\sql;
 
-
 use App\Http\Models\HotelModel;
 
 class Hotel
@@ -45,7 +44,7 @@ class Hotel
     /**
      * Lấy danh sách hotel theo category
      *
-     * @param $category_tour_id
+     * @param $category_hotel_id
      * @param int $limit
      * @return mixed
      */

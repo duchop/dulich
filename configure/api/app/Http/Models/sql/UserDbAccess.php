@@ -12,6 +12,12 @@ use App\Http\Models\UserModel;
 
 class UserDbAccess
 {
+    /**
+     * Lấy thông tin user
+     *
+     * @param $user_name
+     * @return mixed
+     */
     public function getUserInfo($user_name)
     {
         $ary_colums = [

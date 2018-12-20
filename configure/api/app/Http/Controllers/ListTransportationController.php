@@ -2,22 +2,19 @@
 /**
  * Created by PhpStorm.
  * User: doduchop
- * Date: 12/5/2018
- * Time: 11:14 PM
+ * Date: 12/20/2018
+ * Time: 1:42 PM
  */
 
 namespace App\Http\Controllers;
 
 
-use App\Http\Services\ListHotelsService;
-use Illuminate\Http\Request;
-
-class ListHotelsController extends Controller
+class ListTransportationController
 {
     /**
      * サービス
      *
-     * @var  ListHotelsService $service
+     * @var  ListToursService $service
      */
     private $service;
 
@@ -26,7 +23,7 @@ class ListHotelsController extends Controller
      */
     public function __construct()
     {
-        $this->service = app(ListHotelsService::class);
+        $this->service = app(ListToursService::class);
     }
 
     /**
@@ -39,6 +36,6 @@ class ListHotelsController extends Controller
         // lấy thông tin để hiển thị lên view
         $data = $this->service->getData();
 
-        return view('list_hotels')->with($data);
+        return view('list_tours')->with($data);
     }
 }
