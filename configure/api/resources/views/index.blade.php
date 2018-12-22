@@ -254,10 +254,10 @@
                 <div class="col-md-4">
                     <div class="infography infography-1">
                         <div class="infography-icon">
-                            <i class="fas fa-bus"></i>
+                            <a href="transportation_list?transportation_category_id=2"><i class="fas fa-bus"></i></a>
                         </div>
                         <div class="infography-text">
-                            <h4>Bus Hanoi Sapa</h4>
+                            <a href="transportation_list?transportation_category_id=2"><h4>Bus Hanoi Sapa</h4></a>
                             <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
                         </div>
                     </div>

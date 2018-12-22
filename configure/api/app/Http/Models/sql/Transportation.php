@@ -14,24 +14,24 @@ use App\Http\Models\TransportationModel;
 class Transportation
 {
     /**
-     * Lấy thông tin chi tiết tour theo id
+     * Lấy thông tin chi tiết transportation theo id
      *
-     * @param $hotel_id
+     * @param $transportation
      * @return mixed
      */
-    public function getTransDetailById($hotel_id) {
-        $hotel = TransportationModel::find($hotel_id);
-        return $hotel;
+    public function getTransDetailById($transportation) {
+        $transportation = TransportationModel::find($transportation);
+        return $transportation;
     }
 
     /**
-     * Lấy danh sách transportation theo category
+     * Lấy danh sách transportation theo category id
      *
      * @param $category_id
      * @param int $limit
      * @return mixed
      */
-    public function getListTransByCategoryId($category_id, $limit = 0) {
+    public function getListTransportationByCategoryId($category_id, $limit = 0) {
         $list_transportation = TransportationModel::where('transportation_category_id', $category_id)->paginate($limit);
         return $list_transportation;
     }

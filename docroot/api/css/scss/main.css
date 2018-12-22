@@ -2803,7 +2803,7 @@ p.tour-info-item {
   margin-top: 10px;
   padding-bottom: 15px;
   margin-bottom: 40px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4); }
+}
 
 .blog-single-info .caption span.blog-item-author {
   color: rgba(0, 0, 0, 0.8); }

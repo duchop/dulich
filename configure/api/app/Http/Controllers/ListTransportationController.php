@@ -9,12 +9,14 @@
 namespace App\Http\Controllers;
 
 
-class ListTransportationController
+use App\Http\Services\ListTransportationService;
+
+class ListTransportationController extends Controller
 {
     /**
      * サービス
      *
-     * @var  ListToursService $service
+     * @var  ListTransportationService $service
      */
     private $service;
 
@@ -23,11 +25,11 @@ class ListTransportationController
      */
     public function __construct()
     {
-        $this->service = app(ListToursService::class);
+        $this->service = app(ListTransportationService::class);
     }
 
     /**
-     * Action được gọi đến khi vào xem thông tin chi chiết tour
+     * Action được gọi đến khi xem danh sách list transportation
      *
      * @param Request $request
      */
@@ -36,6 +38,6 @@ class ListTransportationController
         // lấy thông tin để hiển thị lên view
         $data = $this->service->getData();
 
-        return view('list_tours')->with($data);
+        return view('list_transportation')->with($data);
     }
 }

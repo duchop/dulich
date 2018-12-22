@@ -6,9 +6,9 @@
     <meta name="format-detection" content="telephone=no">
 @endsection
 
-@section('title'){!! 'Du lcih viet nam' !!}@endSection
+@section('title'){!! 'Du lich viet nam' !!}@endSection
 
-@section('body_class'){!! 'page__list_hotels' !!}@endSection
+@section('body_class'){!! 'page__list_transportation' !!}@endSection
 
 @section('content')
     <div class="page-head white-content">
@@ -22,18 +22,18 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">
-                                                @if(isset($list_hotels) and count($list_hotels) > 0)
-                                                    {{ $list_hotels['0']->getCategoryHotel['hotel_category_name'] }}
-                                                @endif
-                                            </li>
+                                            @if($list_transportation['0']->transportation_category_id == 2)
+                                                <li class="breadcrumb-item active" aria-current="page">Bus Hanoi Sapa</li>
+                                            @elseif($list_transportation['0']->transportation_category_id == 3)
+                                                <li class="breadcrumb-item active" aria-current="page">Train HaNoi – Lao Cai</li>
+                                            @endif
                                         </ol>
                                     </nav>
-                                    <h1 class="big-title mt-60">
-                                        @if(isset($list_hotels) and count($list_hotels) > 0)
-                                            {{ $list_hotels['0']->getCategoryHotel['hotel_category_name'] }}
-                                        @endif
-                                    </h1>
+                                    @if($list_transportation['0']->transportation_category_id == 2)
+                                        <h1 class="big-title mt-60">Bus Hanoi Sapa</h1>
+                                    @elseif($list_transportation['0']->transportation_category_id == 3)
+                                        <h1 class="big-title mt-60">Train HaNoi – Lao Cai</h1>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -130,17 +130,17 @@
                 <!-- / filter horizontal form -->
             </div>
 
-            @foreach($list_hotels as $hotel)
+            @foreach($list_transportation as $transportation)
                 <div class="col-md-6 col-lg-3">
                     <div class="blog-item effect-1">
-                        <a class="block" href="hotel_detail?hotel_id={{ $hotel['hotel_id'] }}">
-                            <img src="{{ $hotel->imageRelation['0']->image['url'] }}" alt="img12">
+                        <a class="block" href="transportation_detail?transportation_id={{ $transportation['transportation_id'] }}">
+                            <img src="{{ $transportation->imageRelation['0']->image['url'] }}" alt="img12">
                         </a>
                         <div class="caption clearfix">
-                            <a href="hotel_detail?hotel_id={{ $hotel['hotel_id'] }}">
-                                <p class="title">{{ $hotel['hotel_name'] }}</p>
+                            <a href="transportation_detail?transportation_id={{ $transportation['transportation_id'] }}">
+                                <p class="title">{{ $transportation['transportation_name'] }}</p>
                             </a>
-                            <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($hotel['update_datetime'])) }}</p>
+                            <p class="date"><span class="ti-calendar"></span>{{ date('F d, Y', strtotime($transportation['update_datetime'])) }}</p>
                             <p class="author"><span class="ti-user"></span>TravelUser</p>
                             <ul class="tags">
                                 <li><a href="#">View Detail</a></li>
@@ -152,7 +152,7 @@
 
             <div class="col-md-12">
                 <div class="pagination">
-                    {!! $list_hotels->appends(['category_hotel_id' => $list_hotels[0]['hotel_category_id']])->links('pagination') !!}
+                    {!! $list_transportation->appends(['transportation_category_id' => $list_transportation[0]['transportation_category_id']])->links('pagination') !!}
                 </div>
             </div>
         </div>

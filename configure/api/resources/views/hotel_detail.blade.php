@@ -13,7 +13,7 @@
     <!-- page-head -->
 
     <div class="page-head white-content">
-        <div class="height80vh parallax-container" style="background-image: url(img/image-5.jpg);">
+        <div class="height80vh parallax-container" style="background-image: url({{'img/image-5.jpg'}});">
             <div class="page-head-wrap">
                 <div class="display-r">
                     <div class="display-a">

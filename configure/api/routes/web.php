@@ -15,8 +15,10 @@ use App\Constants\CommonConst;
 Route::get('home', 'HomeController@index');
 Route::get('tour_detail', 'TourDetailController@index');
 Route::get('hotel_detail', 'HotelDetailController@index');
+Route::get('transportation_detail', 'TransportationDetailController@index');
 Route::get('tour_list', 'ListToursController@index');
 Route::get('hotel_list', 'ListHotelsController@index');
+Route::get('transportation_list', 'ListTransportationController@index');
 
 Route::match([
     'get',

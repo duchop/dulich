@@ -20,4 +20,19 @@ class TransportationModel extends Model
     protected $table = 'tbl_transportation';
 
     protected $primaryKey = 'transportation_id';
+
+    public function imageRelation()
+    {
+        return $this->hasMany(ImageRelationModel::class, 'transportation_id');
+    }
+
+    public function getTravelTime()
+    {
+        return $this->hasMany(TravelTimeModel::class, 'transportation_id');
+    }
+
+    public function getInclude()
+    {
+        return $this->hasMany(IncludeModel::class, 'transportation_id');
+    }
 }

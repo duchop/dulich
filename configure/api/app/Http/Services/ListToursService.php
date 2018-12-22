@@ -42,7 +42,7 @@ class ListToursService extends Service
         $data = parent::getMenuHeaderData();
 
         // lấy thông tin chi tiết tour
-        $list_tours = $this->tour->getListToursByCategoryId($category_tour_id, 3);
+        $list_tours = $this->tour->getListToursByCategoryId($category_tour_id, 6);
         $data['list_tours'] = $list_tours;
         return $data;
     }

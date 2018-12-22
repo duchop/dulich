@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: doduchop
- * Date: 12/20/2018
- * Time: 1:44 PM
+ * Date: 12/22/2018
+ * Time: 1:12 PM
  */
 
 namespace App\Http\Services;
@@ -11,7 +11,7 @@ namespace App\Http\Services;
 
 use App\Http\Models\sql\Transportation;
 
-class ListTransportationService extends Service
+class TransportationDetailService extends Service
 {
     /**
      * @var Transportation $transportation
@@ -27,23 +27,21 @@ class ListTransportationService extends Service
     }
 
     /**
-     * Lấy thông tin hiển thị màn hình list transportation
+     * Lấy thông tin hiển thị màn hình hotel transportation
      *
+     * @param $transportation_id
      * @return mixed
      * @throws \Exception
      */
-    public function getData()
+    public function getData($transportation_id)
     {
-        $ary_request_all = request()->all();
-
-        $transportation_category_id = $ary_request_all['transportation_category_id'];
-
         // lấy thông tin hiển thị menu
         $data = parent::getMenuHeaderData();
 
-        // lấy thông tin chi tiết tour
-        $list_transportation = $this->transportation->getListTransportationByCategoryId($transportation_category_id, 3);
-        $data['list_transportation'] = $list_transportation;
+        // lấy thông tin chi tiết hotel
+        $transportation = $this->transportation->getTransDetailById($transportation_id);
+
+        $data['transportation'] = $transportation;
         return $data;
     }
 }
