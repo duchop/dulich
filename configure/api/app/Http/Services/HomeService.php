@@ -36,14 +36,14 @@ class HomeService extends Service
     {
         try {
 
+            $data = parent::getMenuHeaderData();
+
             $ary_daily_tour = $this->tour->getListDailyTour(6);
 
             $ary_hotel = $this->hotel->getListHotel(6);
 
             $data['ary_daily_tour'] = $ary_daily_tour;
             $data['ary_hotel'] = $ary_hotel;
-
-            $data = array_merge($data, parent::getMenuHeaderData());
 
             return $data;
         } catch (\Exception $ex) {

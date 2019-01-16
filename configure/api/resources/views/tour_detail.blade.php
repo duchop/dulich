@@ -12,7 +12,7 @@
 @section('content')
 
     <div class="page-head white-content">
-        <div class="height50vh parallax-container" style="background-image: url({{ 'img/dongvan.jpg' }});">
+        <div class="height50vh parallax-container" style="background-image: url({{ 'img/image-5.jpg' }});">
             <div class="page-head-wrap">
                 <div class="display-r">
                     <div class="display-a">
@@ -117,66 +117,8 @@
                     <strong style="color: #ff6224">Contact</strong>
                 @endif
                 <div class="blog-comments mt-50">
-                    <h3>3 comments on "Blog Single Post 1"</h3>
-
-                    <div class="blog-comment-item">
-                        <div class="avatar text-center clearfix">
-                            <img src="img/team-1-1.jpg" alt="Avatar image">
-                            <a class="btn btn-1 btn-sm" href="#">Replay</a>
-                        </div>
-                        <div class="blog-comment-content">
-                            <h5>Admin</h5>
-                            <p class="blog-comment-info">May 23, 2018</p>
-                            <p>Magni vitae, distinctio, eligendi dolorum quam! Ad ex cupiditate culpa omnis? Libero.</p>
-                        </div>
-                    </div>
-
-                    <div class="blog-comment-item">
-                        <div class="avatar text-center">
-                            <img src="img/team-1-1.jpg" alt="Avatar image">
-                            <a class="btn btn-1 btn-sm" href="#">Replay</a>
-                        </div>
-                        <div class="blog-comment-content">
-                            <h5>Admin</h5>
-                            <p class="blog-comment-info">April 13, 2018</p>
-                            <p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</p>
-                        </div>
-                    </div>
-
-                    <div class="blog-comment-item">
-                        <div class="avatar text-center">
-                            <img src="img/team-1-1.jpg" alt="Avatar image">
-                            <a class="btn btn-1 btn-sm" href="#">Replay</a>
-                        </div>
-                        <div class="blog-comment-content">
-                            <h5>Admin</h5>
-                            <p class="blog-comment-info">April 2, 2018</p>
-                            <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam.</p>
-                        </div>
-                    </div>
+                    <div class="fb-comments" data-href="http://dulichvn.com?tour_id={{ $tour->tour_id }}" data-numposts="15"></div>
                 </div> <!-- / .blog-comments -->
-
-                <div class="blog-comments-form mt-50 mb-50">
-                    <h3>Post a Comment</h3>
-                    <form id="comment-form" method="POST" class="mt-20" novalidate="novalidate">
-                        <div class="form-row contact-form">
-                            <div class="col-md-12">
-                                <textarea name="message" placeholder="Your message"></textarea>
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="phone" placeholder="Your phone">
-                            </div>
-                            <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" placeholder="Your name">
-                            </div>
-
-                            <div class="col-auto mt-10">
-                                <button type="submit" class="btn btn-1">Post comment</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-
             </div>
 
             <div class="col-md-4">
@@ -257,5 +199,13 @@
 
         </div>
     </div>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2';
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 @endsection
 

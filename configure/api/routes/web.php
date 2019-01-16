@@ -19,6 +19,8 @@ Route::get('transportation_detail', 'TransportationDetailController@index');
 Route::get('tour_list', 'ListToursController@index');
 Route::get('hotel_list', 'ListHotelsController@index');
 Route::get('transportation_list', 'ListTransportationController@index');
+Route::get('contact', 'ContactController@index');
+Route::post('send_mail', 'SendMailController@index');
 
 Route::match([
     'get',

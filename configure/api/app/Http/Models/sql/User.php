@@ -10,7 +10,7 @@ namespace App\Http\Models\sql;
 
 use App\Http\Models\UserModel;
 
-class UserDbAccess
+class User
 {
     /**
      * Lấy thông tin user
@@ -18,13 +18,18 @@ class UserDbAccess
      * @param $user_name
      * @return mixed
      */
-    public function getUserInfo($user_name)
+    public function getUserInfo($user_id)
     {
         $ary_colums = [
-            'mail',
-            'password'
+            'user_id',
+            'user_name',
+            'email',
+            'area',
+            'password',
+            'number_phone',
+            'address_office'
         ];
-        $user = UserModel::where('user_name', $user_name)->first($ary_colums);
+        $user = UserModel::where('user_id', $user_id)->first($ary_colums);
 
         return $user;
     }

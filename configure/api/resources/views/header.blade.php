@@ -13,10 +13,9 @@
         <div class="header-info-item clearfix">
             <p class="header-info-title">Contact Us</p>
             <ul>
-                <li><span class="ti-map-alt"></span> 610 Broadway New York, NY 10012</li>
-                <li><span class="ti-headphone-alt"></span> <a href="tel:1800-2345-5677">1800-2345-5677</a></li>
-                <li><span class="ti-mobile"></span> <a href="tel:1800-2345-5678">1800-2345-5678</a></li>
-                <li><span class="ti-email"></span> <a href="mailto:info@voyagetime.com">info@voyagetime.com</a></li>
+                <li><span class="ti-map-alt"></span>{{ $user_info->address_office }}</li>
+                <li><span class="ti-mobile"></span> <a href="tel:1800-2345-5678">{{ $user_info->number_phone }}</a></li>
+                <li><span class="ti-email"></span> <a href="mailto:info@voyagetime.com">{{ $user_info->email }}</a></li>
             </ul>
         </div>
         <div class="header-info-item clearfix">
@@ -52,7 +51,7 @@
                 </div>
                 <div class="col-md-7 col-8">
                     <div class="clearfix float-right contact-head">
-                        <a href="tel:1800-2345-5677">1800-2345-5677</a>
+                        <a href="tel:0969115038">{{ $user_info->number_phone }}</a>
                         <button class="btn-show navbar-toggler float-right btn-contact"><span class="ti-menu"></span></button>
                     </div>
                     <nav id="navigation" class="navigation mt-10">
@@ -71,10 +70,10 @@
                         <div class="nav-menus-wrapper">
 
                             <ul class="nav-menu align-to-right">
-                                <li><a class="active" href="#">Home</a>
+                                <li><a class="active" href="home">Home</a>
                                     <ul class="nav-dropdown">
-                                        <li><a href="index.html">Daily tour</a></li>
-                                        <li><a href="home-style-2.html">Halong on cruise</a></li>
+                                        <li><a href="#">Daily tour</a></li>
+                                        <li><a href="tour_list?category_tour_id=5">Halong on cruise</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Daily tour</a>
@@ -92,9 +91,10 @@
                                 </li>
                                 <li><a href="#">Transportation</a>
                                     <ul class="nav-dropdown">
+                                        <a href="transportation_list?transportation_category_id=2"><i class="fas fa-bus"></i></a>
                                         <li><a href="#">Airport Transportation</a></li>
-                                        <li><a href="#">Bus Hanoi Sapa</a></li>
-                                        <li><a href="#">Train HaNoi – Lao Cai</a></li>
+                                        <li><a href="transportation_list?transportation_category_id=2">Bus Hanoi Sapa</a></li>
+                                        <li><a href="transportation_list?transportation_category_id=3">Train HaNoi – Lao Cai</a></li>
                                     </ul>
                                 </li>
                                 <li><a href="#">Hotel</a>
@@ -104,33 +104,7 @@
                                         @endforeach
                                     </ul>
                                 </li>
-                                <li><a href="#">Elements</a>
-                                    <div class="megamenu-panel">
-                                        <div class="megamenu-lists">
-                                            <ul class="megamenu-list list-col-3">
-                                                <li><a href="elements-heading.html">Headings</a></li>
-                                                <li><a href="elements-blockquotes.html">Blockquotes</a></li>
-                                                <li><a href="elements-dropcaps.html">Dropcaps</a></li>
-                                                <li><a href="elements-seporators.html">Seporators</a></li>
-
-                                            </ul>
-                                            <ul class="megamenu-list list-col-3">
-                                                <li><a href="elements-icons.html">Icons</a></li>
-                                                <li><a href="elements-buttons.html">Buttons</a></li>
-                                                <li><a href="elements-infography.html">Infography</a></li>
-                                                <li><a href="elements-call-to-action.html">Call-to-action</a></li>
-                                            </ul>
-                                            <ul class="megamenu-list list-col-3">
-                                                <li><a href="elements-testimonials.html">Testimonials</a></li>
-                                                <li><a href="elements-tabs&accordions.html">Tabs & Accordions</a></li>
-                                                <li><a href="elements-team.html">Team</a></li>
-                                                <li><a href="elements-section-title.html">Section Title</a></li>
-                                            </ul>
-
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="contact">Contact</a></li>
                             </ul>
                         </div>
                     </nav>

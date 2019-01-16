@@ -17,16 +17,22 @@
                 <div class="display-r">
                     <div class="display-a">
                         <div class="container">
-                            <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                            <div class="row justify-content-center animate" data-animation="fadeInUp"
+                                 data-timeout="500">
                                 <div class="col-md-12">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             @if($transportation->transportation_category_id == 2)
-                                                <li class="breadcrumb-item"><a href="transportation_list?transportation_category_id=2">Bus Hanoi Sapa</a></li>
+                                                <li class="breadcrumb-item"><a
+                                                            href="transportation_list?transportation_category_id=2">Bus
+                                                        Hanoi Sapa</a></li>
                                             @elseif($transportation->transportation_category_id == 3)
-                                                <li class="breadcrumb-item"><a href="transportation_list?transportation_category_id=3">Train HaNoi – Lao Cai</a></li>
+                                                <li class="breadcrumb-item"><a
+                                                            href="transportation_list?transportation_category_id=3">Train
+                                                        HaNoi – Lao Cai</a></li>
                                             @endif
-                                            <li class="breadcrumb-item active" aria-current="page">{{ $transportation['transportation_name'] }}</li>
+                                            <li class="breadcrumb-item active"
+                                                aria-current="page">{{ $transportation['transportation_name'] }}</li>
                                         </ol>
                                     </nav>
                                     <h1 class="big-title mt-60">Transportation Detail</h1>
@@ -62,7 +68,9 @@
                 </div>
                 @if(! empty($transportation['introductions']))
                     <h4>Introduction</h4>
-                    <p>{{ $transportation['introductions'] }}</p>
+                    <p style="font-size: 15px">
+                        {!! str_replace($transportation['transportation_name'], '<strong style="color: #ef3822">'. $transportation['transportation_name'] . '</strong>', $transportation['introductions']) !!}
+                    </p>
                 @endif
                 @if(! empty($transportation->getTravelTime))
                     <hr>
@@ -72,18 +80,24 @@
                             @foreach($transportation->getTravelTime as $travel_time)
                                 <li>
                                     @if($travel_time['time_start'] < 12)
-                                        Morning bus will depart from {{ $travel_time['address_from'] }} at {{ number_format($travel_time['time_start'],2,".",".") . 'am '}}
+                                        Morning bus will depart from {{ $travel_time['address_from'] }}
+                                        at {{ number_format($travel_time['time_start'],2,".",".") . 'am '}}
                                     @elseif($travel_time['time_start'] >= 12 and $travel_time['time_start'] < 18)
-                                        Noon bus will depart from {{ $travel_time['address_from'] }} at {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
+                                        Noon bus will depart from {{ $travel_time['address_from'] }}
+                                        at {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
                                     @else
-                                        Night bus will depart from {{ $travel_time['address_from'] }} at {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
+                                        Night bus will depart from {{ $travel_time['address_from'] }}
+                                        at {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
                                     @endif
                                     @if($travel_time['time_end'] < 12)
-                                        and arrive to  {{ $travel_time['address_to'] }} at {{ number_format($travel_time['time_end'],2,".",".") . 'am '}}
+                                        and arrive to  {{ $travel_time['address_to'] }}
+                                        at {{ number_format($travel_time['time_end'],2,".",".") . 'am '}}
                                     @elseif($travel_time['time_end'] >= 12 and $travel_time['time_end'] < 18)
-                                        and arrive to  {{ $travel_time['address_to'] }} at {{ number_format($travel_time['time_end'],2,".",".") . 'pm '}}
+                                        and arrive to  {{ $travel_time['address_to'] }}
+                                        at {{ number_format($travel_time['time_end'],2,".",".") . 'pm '}}
                                     @else
-                                        and arrive to  {{ $travel_time['address_to'] }} at {{ number_format($travel_time['time_end'],2,".",".") . 'pm '}}
+                                        and arrive to  {{ $travel_time['address_to'] }}
+                                        at {{ number_format($travel_time['time_end'],2,".",".") . 'pm '}}
                                     @endif
                                 </li>
 
@@ -94,8 +108,9 @@
                         <ul class="list-2">
                             @foreach($transportation->getTravelTime as $travel_time)
                                 <li>
-                                    From {{ $travel_time['address_from'] }} Train station to {{ $travel_time['address_to'] }} Train  Station: Departure at
-                                @if($travel_time['time_start'] < 12)
+                                    From {{ $travel_time['address_from'] }} Train station
+                                    to {{ $travel_time['address_to'] }} Train Station: Departure at
+                                    @if($travel_time['time_start'] < 12)
                                         {{ number_format($travel_time['time_start'],2,".",".") . 'am '}}
                                     @elseif($travel_time['time_start'] >= 12 and $travel_time['time_start'] < 18)
                                         {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
@@ -103,7 +118,8 @@
                                         {{ number_format($travel_time['time_start'],2,".",".") . 'pm '}}
                                     @endif
                                     @if($travel_time['time_end'] < 12)
-                                        & arrival at    {{ $travel_time['address_to'] }} at {{ number_format($travel_time['time_end'],2,".",".") . 'am '}}
+                                        & arrival at    {{ $travel_time['address_to'] }}
+                                        at {{ number_format($travel_time['time_end'],2,".",".") . 'am '}}
                                     @elseif($travel_time['time_end'] >= 12 and $travel_time['time_end'] < 18)
                                         & arrival at {{ number_format($travel_time['time_end'],2,".",".") . 'pm '}}
                                     @else
@@ -160,7 +176,11 @@
                         <div class="blog-comment-content">
                             <h5>Admin</h5>
                             <p class="blog-comment-info">April 13, 2018</p>
-                            <p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</p>
+                            <p>Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus.
+                                Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem
+                                massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui.
+                                Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.</p>
                         </div>
                     </div>
 
@@ -172,7 +192,10 @@
                         <div class="blog-comment-content">
                             <h5>Admin</h5>
                             <p class="blog-comment-info">April 2, 2018</p>
-                            <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam.</p>
+                            <p>Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar
+                                ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet
+                                risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique,
+                                dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante. Nulla quam.</p>
                         </div>
                     </div>
                 </div> <!-- / .blog-comments -->
@@ -206,7 +229,8 @@
                     <div class="sidebar-item mb-30">
                         <form method="POST">
                             <div class="input-group">
-                                <input type="text" name="search" id="search" placeholder="Search..." class="form-control">
+                                <input type="text" name="search" id="search" placeholder="Search..."
+                                       class="form-control">
                                 <span class="input-group-btn">
                       <button type="submit" class="btn btn-3"><span class="ti-search"></span></button>
                    </span>
