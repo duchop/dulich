@@ -36,11 +36,15 @@ class HotelDetailController extends Controller
      */
     public function index(Request $request)
     {
-        $hotel_id = $request->get('hotel_id');
+        try {
+            $hotel_id = $request->get('hotel_id');
 
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData($hotel_id);
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData($hotel_id);
 
-        return view('hotel_detail')->with($data);
+            return view('hotel_detail')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }

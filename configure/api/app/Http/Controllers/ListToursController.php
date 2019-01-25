@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Services\ListToursService;
 use Illuminate\Http\Request;
 
@@ -36,9 +35,13 @@ class ListToursController extends Controller
      */
     public function index()
     {
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData();
+        try {
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData();
 
-        return view('list_tours')->with($data);
+            return view('list_tours')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }

@@ -29,8 +29,12 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $data = $this->service->getData();
+        try {
+            $data = $this->service->getData();
 
-        return view('index')->with($data);
+            return view('index')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }

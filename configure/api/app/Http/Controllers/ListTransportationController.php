@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Services\ListTransportationService;
 
 class ListTransportationController extends Controller
@@ -35,9 +34,13 @@ class ListTransportationController extends Controller
      */
     public function index()
     {
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData();
+        try {
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData();
 
-        return view('list_transportation')->with($data);
+            return view('list_transportation')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }

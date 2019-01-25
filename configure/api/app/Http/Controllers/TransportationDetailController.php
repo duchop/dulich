@@ -8,7 +8,6 @@
 
 namespace App\Http\Controllers;
 
-
 use App\Http\Services\TransportationDetailService;
 use Illuminate\Http\Request;
 
@@ -36,12 +35,15 @@ class TransportationDetailController extends Controller
      */
     public function index(Request $request)
     {
-        $transportation_id = $request->get('transportation_id');
+        try {
+            $transportation_id = $request->get('transportation_id');
 
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData($transportation_id);
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData($transportation_id);
 
-        return view('transportation_detail')->with($data);
+            return view('transportation_detail')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
-
 }

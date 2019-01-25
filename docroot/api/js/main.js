@@ -203,7 +203,7 @@ $("form#contact-form").validate({
     var message = $("input[name=message]").val();
 
     $.ajax({
-      url: "./php/form_contact.php",
+      url: "send_mail",
       type: "POST",
       data: {subject: subject, email:email, message:message},
       cache: false,

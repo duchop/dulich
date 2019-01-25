@@ -29,11 +29,15 @@ class TourDetailController extends Controller
      */
     public function index(Request $request)
     {
-        $tour_id = $request->get('tour_id');
+        try {
+            $tour_id = $request->get('tour_id');
 
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData($tour_id);
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData($tour_id);
 
-        return view('tour_detail')->with($data);
+            return view('tour_detail')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }

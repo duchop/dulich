@@ -94,28 +94,5 @@
             </div>
         </div>
     </div>
-
-
 @endsection
 
-@section('script')
-    <script>
-        $(function () {
-            $('#send_mail').click(function (e) {
-                e.preventDefault();
-                $.ajax({
-                    url: 'send_mail',
-                    method: "POST",
-                    data: {
-                        'email': $('#email').val(),
-                        'subject': $('#subject').val(),
-                        'message': $('#message').val()
-                    },
-                    success: function (data) {
-                        console.log(data);
-                    }
-                });
-            })
-        })
-    </script>
-@endSection

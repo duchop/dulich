@@ -216,7 +216,7 @@
                     reprehenderit,
                     inventore, tempore aut neque cupiditate, aspernatur! Quibusdam aliquid dolor a culpa, officiis
                     quisquam.</p>
-                <a class="btn btn-1" href="#">Contact Us</a>
+                <a class="btn btn-1" href="contact">Contact Us</a>
             </div>
         </div>
     </div>

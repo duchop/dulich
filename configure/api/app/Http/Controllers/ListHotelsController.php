@@ -36,9 +36,13 @@ class ListHotelsController extends Controller
      */
     public function index()
     {
-        // lấy thông tin để hiển thị lên view
-        $data = $this->service->getData();
+        try {
+            // lấy thông tin để hiển thị lên view
+            $data = $this->service->getData();
 
-        return view('list_hotels')->with($data);
+            return view('list_hotels')->with($data);
+        } catch (\Exception $e) {
+            return view('error')->with($data);
+        }
     }
 }
