@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no">
 @endsection
 
-@section('title'){!! 'Du lịch việt nam' !!}@endSection
+@section('title'){!! 'Northern Vietnam Travel' !!}@endSection
 
 @section('body_class'){!! 'page_transportation_detail' !!}@endSection
 

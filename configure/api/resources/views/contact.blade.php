@@ -4,7 +4,7 @@
     <meta name="robots" content="noindex,nofollow,noarchive"/>
 @endsection
 
-@section('title'){!! 'du lich viet nam' !!}@endSection
+@section('title'){!! 'Northern Vietnam Travel' !!}@endSection
 
 @section('body_class'){!! 'page__contact' !!}@endSection
 

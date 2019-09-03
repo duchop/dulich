@@ -5,7 +5,7 @@
     <meta name="format-detection" content="telephone=no">
 @endsection
 
-@section('title'){!! 'Du lịch việt nam' !!}@endSection
+@section('title'){!! 'Northern Vietnam Travel' !!}@endSection
 
 @section('body_class'){!! 'page_tour_detail' !!}@endSection
 
@@ -17,13 +17,16 @@
                 <div class="display-r">
                     <div class="display-a">
                         <div class="container">
-                            <div class="row justify-content-center animate" data-animation="fadeInUp" data-timeout="500">
+                            <div class="row justify-content-center animate" data-animation="fadeInUp"
+                                 data-timeout="500">
                                 <div class="col-md-12">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="home">Home</a></li>
-                                            <li class="breadcrumb-item"><a href="#">{{ $tour->getCategoryTour['category_name'] }}</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">{{ $tour['tour_name'] }}</li>
+                                            <li class="breadcrumb-item"><a
+                                                        href="#">{{ $tour->getCategoryTour['category_name'] }}</a></li>
+                                            <li class="breadcrumb-item active"
+                                                aria-current="page">{{ $tour['tour_name'] }}</li>
                                         </ol>
                                     </nav>
                                     <h1 class="big-title mt-60">Tour Detail</h1>
@@ -64,43 +67,113 @@
                 @if(isset($tour->getItinerary) and count($tour->getItinerary) > 0)
                     <hr>
                     <h4>Itinerary</h4>
-                    <ul class="list-2">
+                    @if($tour->tour_day == 2)
                         @foreach($tour->getItinerary as $itinerary)
-                            @if(isset($itinerary['time_start']) and isset($itinerary['time_end']))
-                                <li>
-                                    <strong>{{ $itinerary['time_start'] . ' - ' . $itinerary['time_end'] }}</strong>
-                                    {!! $itinerary['itinerary_content'] !!}
-                                </li>
-                            @elseif(isset($itinerary['time_start']))
-                                <li>
-                                    <strong>{{ $itinerary['time_start'] }}</strong>
-                                    {!! $itinerary['itinerary_content'] !!}
-                                </li>
+                            @if(isset($itinerary['tour_day']) and $itinerary['tour_day'] == 1)
+                                @php
+                                    $list_itinerary_day1[] = $itinerary;
+                                    if (! empty($itinerary['itinerary_introduction'])) {
+                                        $itinerary_introduction_1 = $itinerary['itinerary_introduction'];
+                                    }
+                                @endphp
                             @else
-                                <li>
-                                    {!! $itinerary['itinerary_content'] !!}
-                                </li>
+                                @php
+                                    $list_itinerary_day2[] = $itinerary;
+                                    if (! empty($itinerary['itinerary_introduction'])) {
+                                        $itinerary_introduction_2 = $itinerary['itinerary_introduction'];
+                                    }
+                                @endphp
                             @endif
                         @endforeach
-                    </ul>
+                        <h5>Day
+                            1 @if(isset($itinerary_introduction_1)) {{ ': ' . $itinerary_introduction_1 }} @endif</h5>
+                        <ul class="list-2">
+                            @foreach($list_itinerary_day1 as $itinerary)
+                                @if(isset($itinerary['time_start']) and isset($itinerary['time_end']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] . ' - ' . $itinerary['time_end'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @elseif(isset($itinerary['time_start']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @else
+                                    <li>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                        <h5>Day
+                            2 @if($itinerary_introduction_2) {{ ': ' . $itinerary_introduction_2 }} @endif</h5>
+                        <ul class="list-2">
+                            @foreach($list_itinerary_day2 as $itinerary)
+                                @if(isset($itinerary['time_start']) and isset($itinerary['time_end']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] . ' - ' . $itinerary['time_end'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @elseif(isset($itinerary['time_start']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @else
+                                    <li>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @else
+                        <ul class="list-2">
+                            @foreach($tour->getItinerary as $itinerary)
+                                @if(isset($itinerary['time_start']) and isset($itinerary['time_end']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] . ' - ' . $itinerary['time_end'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @elseif(isset($itinerary['time_start']))
+                                    <li>
+                                        <strong>{{ $itinerary['time_start'] }}</strong>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @else
+                                    <li>
+                                        {!! $itinerary['itinerary_content'] !!}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    @endif
                 @endif
-
                 @if(isset($tour->getInclude) and count($tour->getInclude))
+                    @foreach($tour->getInclude as $include)
+                        @if(isset($include['include_name']) and $include['include_type'] == 0)
+                            @php $list_include[] =  $include @endphp
+                        @elseif(isset($include['include_name']) and $include['include_type'] == 1)
+                            @php $list_exclude[] =  $include @endphp
+                        @endif
+                    @endforeach
+                @endif
+                @if(isset($list_include))
                     <hr>
                     <h4>Included</h4>
                     <ul class="list-3">
-                        @foreach($tour->getInclude as $include)
+                        @foreach($list_include as $include)
                             @if(isset($include['include_name']) and $include['include_type'] == 0)
                                 <li>{!! $include['include_name'] !!} </li>
                             @endif
                         @endforeach
                     </ul>
                 @endif
-                @if(isset($tour->getInclude) and count($tour->getInclude))
+                @if(isset($list_exclude) and count($list_exclude) > 0)
                     <hr>
                     <h4>Excluded</h4>
                     <ul class="list-3">
-                        @foreach($tour->getInclude as $include)
+                        @foreach($list_exclude as $include)
                             @if(isset($include['include_name']) and $include['include_type'] == 1)
                                 <li>{!! $include['include_name'] !!} </li>
                             @endif
@@ -117,7 +190,8 @@
                     <strong style="color: #ff6224">Contact</strong>
                 @endif
                 <div class="blog-comments mt-50">
-                    <div class="fb-comments" data-href="http://dulichvn.com?tour_id={{ $tour->tour_id }}" data-numposts="15"></div>
+                    <div class="fb-comments" data-href="http://dulichvn.com?tour_id={{ $tour->tour_id }}"
+                         data-numposts="15"></div>
                 </div> <!-- / .blog-comments -->
             </div>
 
@@ -127,7 +201,8 @@
                     <div class="sidebar-item mb-30">
                         <form method="POST">
                             <div class="input-group">
-                                <input type="text" name="search" id="search" placeholder="Search..." class="form-control">
+                                <input type="text" name="search" id="search" placeholder="Search..."
+                                       class="form-control">
                                 <span class="input-group-btn">
                       <button type="submit" class="btn btn-3"><span class="ti-search"></span></button>
                    </span>
@@ -141,7 +216,9 @@
                                 <div class="sidebar-post-inner mb-10">
 
                                     <div class="sidebar-post-content">
-                                        <h6><a href="tour_detail?tour_id={{ $tour_other['tour_id'] }}">{{ $tour_other['tour_name'] }}</a></h6>
+                                        <h6>
+                                            <a href="tour_detail?tour_id={{ $tour_other['tour_id'] }}">{{ $tour_other['tour_name'] }}</a>
+                                        </h6>
                                         <span>{{ date('F d, Y', strtotime($tour_other['update_datetime'])) }}</span>
                                     </div>
                                     <div class="sidebar-post-img">
@@ -200,10 +277,11 @@
         </div>
     </div>
     <div id="fb-root"></div>
-    <script>(function(d, s, id) {
+    <script>(function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>

@@ -4,7 +4,7 @@
     <meta name="robots" content="noindex,nofollow,noarchive"/>
 @endsection
 
-@section('title'){!! 'ぐるなび Web Service - 新規アカウント発行/設定変更 エラー' !!}@endSection
+@section('title'){!! 'Northern Vietnam Travel' !!}@endSection
 
 @section('body_class'){!! 'page__subscribe_comp' !!}@endSection
 
